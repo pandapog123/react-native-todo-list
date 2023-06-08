@@ -1,8 +1,7 @@
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from "react-native";
-import React from "react";
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import { TodosContext, useLocalTodos } from "../hooks/useLocalState";
-import TodoList from "./TodoList";
 import TodoListFormButton from "./TodoListFormButton";
+import TodoList from "./TodoList";
 
 export default function Home() {
   const localTodosObj = useLocalTodos();
@@ -25,7 +24,7 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "aliceblue",
+    backgroundColor: "aliceBlue",
     padding: 8,
   },
   headerSafeArea: {

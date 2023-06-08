@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
-import React, { useContext } from "react";
-import type { Todo } from "../types/todo";
-import CustomCheckbox from "./CustomCheckbox";
+import { useContext } from "react";
 import { TodosContext } from "../hooks/useLocalState";
+import type { Todo } from "../types/todo";
+import { StyleSheet, Text, View } from "react-native";
+import CustomCheckbox from "./CustomCheckbox";
 
 interface PropTypes {
   todo: Todo;
@@ -12,10 +12,8 @@ export default function Todo({ todo }: PropTypes) {
   const todosObj = useContext(TodosContext);
 
   function handleCheck(checked: boolean) {
-    console.log(checked);
     todosObj.checkTodo(todo.id);
   }
-
   return (
     <View style={styles.todo}>
       <CustomCheckbox defaultValue={todo.checked} handleChange={handleCheck} />

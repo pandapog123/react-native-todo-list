@@ -1,5 +1,5 @@
-import { View, TouchableOpacity, StyleSheet, Alert } from "react-native";
-import React, { useContext } from "react";
+import { useContext } from "react";
+import { View, Text, Alert, TouchableOpacity, StyleSheet } from "react-native";
 import { TodosContext } from "../hooks/useLocalState";
 import Todo from "./TodoComponent";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -36,13 +36,11 @@ export default function TodoList() {
                   icon={faTrash}
                   color="red"
                   style={styles.listItemIcon}
-                ></FontAwesomeIcon>
+                />
               </TouchableOpacity>
             </View>
 
-            {index < todosObj.todos.length - 1 ? (
-              <View style={styles.divider} />
-            ) : null}
+            <View style={styles.divider} />
           </View>
         );
       })}

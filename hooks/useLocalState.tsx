@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { Todo } from "../types/todo";
+import type { Todo } from "../types/todo";
 import { setItemAsync, getItemAsync } from "expo-secure-store";
 
 interface useLocalTodosReturnType {
@@ -20,6 +20,7 @@ export const TodosContext = createContext<useLocalTodosReturnType>({
 
 async function saveLocalTodos(todos: Todo[]) {
   console.log(todos);
+
   await setItemAsync("todos", JSON.stringify(todos));
 }
 
@@ -38,7 +39,7 @@ export function useLocalTodos(): useLocalTodosReturnType {
         },
       ];
 
-      saveLocalTodos(todos);
+      saveLocalTodos(currentTodos);
 
       return currentTodos;
     });
@@ -46,8 +47,8 @@ export function useLocalTodos(): useLocalTodosReturnType {
 
   async function checkTodo(id: string) {
     setTodos((previousTodos) => {
-      let currentTodos: Todo[] = previousTodos.map((todo) => {
-        if (todo.id == id) {
+      let currentTodos = previousTodos.map((todo) => {
+        if (todo.id === id) {
           return {
             ...todo,
             checked: !todo.checked,
@@ -87,9 +88,9 @@ export function useLocalTodos(): useLocalTodosReturnType {
 
   return {
     todos,
-    createTodo,
-    checkTodo,
-    deleteTodo,
     loading,
+    createTodo,
+    deleteTodo,
+    checkTodo,
   };
 }

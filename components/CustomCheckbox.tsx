@@ -1,17 +1,7 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ViewStyle,
-} from "react-native";
-import React, { useState } from "react";
+import { useState } from "react";
+import { StyleSheet, TouchableOpacity, ViewStyle } from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import {
-  faCheckSquare,
-  faHSquare,
-  faSquare,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCheckSquare, faSquare } from "@fortawesome/free-solid-svg-icons";
 
 interface PropTypes {
   defaultValue?: boolean;
@@ -50,6 +40,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 8,
   },
+
   iconUnselected: {
     color: "white",
   },

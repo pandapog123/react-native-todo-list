@@ -1,8 +1,8 @@
-import { View, Text, TouchableOpacity, Alert, StyleSheet } from "react-native";
-import React, { useContext } from "react";
+import { View, Text, StyleSheet, Alert, TouchableOpacity } from "react-native";
+import { useContext } from "react";
+import { TodosContext } from "../hooks/useLocalState";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
-import { TodosContext } from "../hooks/useLocalState";
 
 export default function TodoListFormButton() {
   const todosObj = useContext(TodosContext);
